@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<Manifest 
+    xmlns="http://schemas.microsoft.com/xw/2004/10/manifest.html"
+    xmlns:temperaturesensor="http://schemas.tempuri.org/2020/01/temperaturesensor.html"
+    xmlns:dssp="http://schemas.microsoft.com/xw/2004/10/dssp.html"
+    >
+    <CreateServiceList>
+        <ServiceRecordType>
+            <dssp:Contract>http://schemas.tempuri.org/2020/01/temperaturesensor.html</dssp:Contract>
+            <dssp:PartnerList>
+              <dssp:Partner>
+                <dssp:Contract>http://schemas.tempuri.org/2020/01/temperaturesensor.html</dssp:Contract>
+                <dssp:Service>temperaturesensor.config.xml</dssp:Service>
+                <dssp:PartnerList />
+                <dssp:Name>dssp:StateService</dssp:Name>
+              </dssp:Partner>
+            </dssp:PartnerList>
+            <Name>this:temperaturesensor</Name>
+        </ServiceRecordType>
+    </CreateServiceList>
+</Manifest>

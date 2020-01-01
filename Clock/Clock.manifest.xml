@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--This file was created with the Microsoft Visual Programming Language.-->
+<Manifest xmlns:clock="http://house.robot/2008/05/clock.html" xmlns:dssp="http://schemas.microsoft.com/xw/2004/10/dssp.html" xmlns:this="urn:uuid:8b667126-20be-4e20-9d6e-938de58c61cc" xmlns="http://schemas.microsoft.com/xw/2004/10/manifest.html">
+  <CreateServiceList>
+    <ServiceRecordType>
+      <dssp:Contract>http://house.robot/2008/05/clock.html</dssp:Contract>
+      <dssp:PartnerList>
+        <dssp:Partner>
+          <dssp:Contract>http://house.robot/2008/05/clock.html</dssp:Contract>
+          <dssp:Service>clock.config.xml</dssp:Service>
+          <dssp:PartnerList />
+          <dssp:Name>dssp:StateService</dssp:Name>
+        </dssp:Partner>
+      </dssp:PartnerList>
+      <Name>this:clock</Name>
+    </ServiceRecordType>
+  </CreateServiceList>
+</Manifest>

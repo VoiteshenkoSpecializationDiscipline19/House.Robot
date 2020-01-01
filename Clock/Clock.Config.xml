@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClockState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://house.robot/2008/05/clock.html">
+	<Longitude>-83.716667</Longitude>
+	<Latitude>42.266667</Latitude>
+	<TimeZoneId>Eastern Standard Time</TimeZoneId>
+</ClockState>
