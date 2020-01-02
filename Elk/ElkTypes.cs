@@ -55,6 +55,17 @@ namespace Robotics.Elk
             for (int i = 0; i < Zones.Length; i++)
                 Zones[i] = new Zone();
 
+            Zones[0].Name = "Front Door";
+            Zones[1].Name = "Back Door";
+            Zones[2].Name = "Safe Door";
+            Zones[3].Name = "Basement Door";
+            for (int i = 0; i < 4; i++)
+            {
+                Zones[i].Id = (byte)(i + 1);
+                Zones[i].State = ZoneState.NormalShort;
+                Zones[i].Timestamp = DateTime.Now;
+            }
+
             Outputs = new Output[ElkConstants.MAX_OUTPUTS];
             for (int i = 0; i < Outputs.Length; i++)
                 Outputs[i] = new Output();
@@ -265,7 +276,6 @@ namespace Robotics.Elk
     /// <summary>
     /// Update Elk zone status
     /// </summary>
-    [DataContract]
     [Description("Notification of single zone status change")]
     public class ZoneChanged : Update<ZoneChangedData, DsspResponsePort<DefaultUpdateResponseType>>
     {

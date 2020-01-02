@@ -12,7 +12,7 @@
     </AssemblyKeyContainerName>
     <AssemblyName>ZoneChangedGenerator.Y2020.M01</AssemblyName>
     <RootNamespace>ZoneChangedGenerator</RootNamespace>
-    <AssemblyOriginatorKeyFile>C:\Users\nikit\Microsoft Robotics Dev Studio 4\samples\mrisamples.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>D:\IT\Microsoft Robotics Development Studio\samples\mrisamples.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -30,7 +30,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>C:\Users\nikit\Microsoft Robotics Dev Studio 4\bin\</OutputPath>
+    <OutputPath>D:\IT\Microsoft Robotics Development Studio\bin\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>C:\Users\nikit\Microsoft Robotics Dev Studio 4\bin\</OutputPath>
+    <OutputPath>D:\IT\Microsoft Robotics Development Studio\bin\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -69,6 +69,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ElkService.Y2008.M04.Proxy, Version=0.0.0.0, Culture=neutral, PublicKeyToken=c131bbd27e23e9e8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Microsoft Robotics Development Studio\bin\ElkService.Y2008.M04.Proxy.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Dss.Runtime.Proxy, Version=4.0.261.0">
       <SpecificVersion>true</SpecificVersion>
       <Private>False</Private>
@@ -120,6 +124,6 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>"C:\Users\nikit\Microsoft Robotics Dev Studio 4\bin\dssproxy.exe" /dll:"$(TargetPath)" /proxyprojectpath:"$(ProjectDir)Proxy" /keyfile:"$(AssemblyOriginatorKeyFile)" $(ProxyDelaySign) $(CompactFrameworkProxyGen) /binpath:"."  /referencepath:"C:\Users\nikit\Microsoft Robotics Dev Studio 4\bin\ "</PostBuildEvent>
+    <PostBuildEvent>"D:\IT\Microsoft Robotics Development Studio\bin\DssProxy.exe" /dll:"$(TargetPath)" /proxyprojectpath:"$(ProjectDir)Proxy" /keyfile:"$(AssemblyOriginatorKeyFile)" $(ProxyDelaySign) $(CompactFrameworkProxyGen) /binpath:"."  /referencepath:"D:\IT\Microsoft Robotics Development Studio\bin\ "</PostBuildEvent>
   </PropertyGroup>
 </Project>

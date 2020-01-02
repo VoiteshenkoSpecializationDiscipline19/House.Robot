@@ -8,7 +8,7 @@ using Microsoft.Dss.ServiceModel.DsspServiceBase;
 using Microsoft.Dss.Services.SubscriptionManager;
 using Robotics.Elk;
 using W3C.Soap;
-using elk = Robotics.Elk;
+using elk = Robotics.Elk.Proxy;
 
 namespace ZoneChangedGenerator
 {
@@ -26,6 +26,8 @@ namespace ZoneChangedGenerator
         [SubscriptionManagerPartner]
         private SubscriptionManagerPort _submgrPort = new SubscriptionManagerPort();
 
+        elk.ZoneChangedData[] devices = new elk.ZoneChangedData[4];
+
         public ZoneChangedGeneratorService(DsspServiceCreationPort creationPort)
 			: base(creationPort)
 		{
@@ -33,12 +35,11 @@ namespace ZoneChangedGenerator
 		
 		protected override void Start()
 		{
-			_state.Devices = new elk.ZoneChanged[4];
-            byte id = 0;
-			foreach (elk.ZoneChanged zoneChanged in _state.Devices)
+            byte id = 1;
+			foreach (elk.ZoneChangedData zoneChanged in devices)
 			{
-				zoneChanged.Body.Id = id++;
-				zoneChanged.Body.State = ZoneState.NormalShort;
+				zoneChanged.Id = id++;
+				zoneChanged.State = elk.ZoneState.NormalShort;
 			}
 
 			base.Start();
@@ -51,22 +52,24 @@ namespace ZoneChangedGenerator
             while (true)
             {
                 int randomDevice = random.Next() % 4;
-                elk.ZoneChanged data = _state.Devices[randomDevice];
-                if (data.Body.State == ZoneState.NormalShort)
+                elk.ZoneChangedData data = devices[randomDevice];
+                data.Timestamp = DateTime.Now;
+                if (data.State == elk.ZoneState.NormalShort)
                 {
-                    data.Body.State = ZoneState.ViolatedShort;
+                    data.State = elk.ZoneState.ViolatedShort;
                 }
-                else if (data.Body.State == ZoneState.ViolatedShort)
+                else if (data.State == elk.ZoneState.ViolatedShort)
                 {
-                    data.Body.State = ZoneState.NormalShort;
+                    data.State = elk.ZoneState.NormalShort;
                 }
 
-                _state.Devices[randomDevice] = data;
+                devices[randomDevice] = data;
+                _state.Device = data;
                 yield return TimeoutPort(15000).Receive(
                         dt =>
                         {
                             LogInfo(string.Format("Sending state notification at {0}.", dt));
-                            SendNotification(_submgrPort, _state.Devices[randomDevice]);
+                            SendNotification(_submgrPort, new ZoneAlarm(devices[randomDevice]));
                         });
             }
         }
@@ -92,7 +95,7 @@ namespace ZoneChangedGenerator
                         dt =>
                         {
                             LogInfo(string.Format("Sending state notification at {0}.", dt));
-                            SendNotification(_submgrPort, _state.Devices[randomDevice]);
+                            SendNotification(_submgrPort, new ZoneAlarm(devices[randomDevice]));
                         }));
                 message.ResponsePort.Post(DefaultUpdateResponseType.Instance);
             }

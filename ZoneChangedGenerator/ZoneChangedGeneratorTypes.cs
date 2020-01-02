@@ -6,7 +6,7 @@ using Microsoft.Dss.Core.Attributes;
 using Microsoft.Dss.ServiceModel.Dssp;
 using Microsoft.Dss.ServiceModel.DsspServiceBase;
 using W3C.Soap;
-using elk = Robotics.Elk;
+using elk = Robotics.Elk.Proxy;
 
 namespace ZoneChangedGenerator
 {
@@ -20,8 +20,8 @@ namespace ZoneChangedGenerator
 	public class ZoneChangedGeneratorState
 	{
 		[DataMember]
-		[Description("Four sensors")]
-		public elk.ZoneChanged[] Devices { get; set; }
+		[Description("sensor")]
+		public elk.ZoneChangedData Device { get; set; }
 	}
 	
 	[ServicePort]
@@ -45,7 +45,24 @@ namespace ZoneChangedGenerator
 	{
 	}
 
-	public class Get : Get<GetRequestType, PortSet<ZoneChangedGeneratorState, Fault>>
+    [Description("An automatic alarm that fires when temperature changed.")]
+    public class ZoneAlarm : Update<elk.ZoneChangedData, DsspResponsePort<DefaultUpdateResponseType>>
+    {
+        public ZoneAlarm()
+        {
+        }
+
+        public ZoneAlarm(elk.ZoneChangedData data)
+        {
+            Body = data;
+        }
+    }
+
+    public class Subscribe : Subscribe<SubscribeRequestType, PortSet<SubscribeResponseType, Fault>>
+    {
+    }
+
+    public class Get : Get<GetRequestType, PortSet<ZoneChangedGeneratorState, Fault>>
 	{
 		public Get()
 		{

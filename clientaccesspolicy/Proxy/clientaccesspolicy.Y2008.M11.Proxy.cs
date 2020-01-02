@@ -11,8 +11,8 @@
 [assembly: global::System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: global::System.Reflection.AssemblyProductAttribute("clientaccesspolicy")]
 [assembly: global::System.Reflection.AssemblyTitleAttribute("clientaccesspolicy")]
-[assembly: global::Microsoft.Dss.Core.Attributes.ServiceDeclarationAttribute(global::Microsoft.Dss.Core.Attributes.DssServiceDeclaration.Proxy, SourceAssemblyKey="clientaccesspolicy.Y2008.M11, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d0" +
-    "8de2285175fb3a")]
+[assembly: global::Microsoft.Dss.Core.Attributes.ServiceDeclarationAttribute(global::Microsoft.Dss.Core.Attributes.DssServiceDeclaration.Proxy, SourceAssemblyKey="clientaccesspolicy.Y2008.M11, Version=1.0.0.0, Culture=neutral, PublicKeyToken=db" +
+    "89f9e070779560")]
 [assembly: global::System.Security.SecurityTransparentAttribute()]
 [assembly: global::System.Security.SecurityRulesAttribute(global::System.Security.SecurityRuleSet.Level1)]
 [assembly: global::Microsoft.Dss.Core.Attributes.ServiceTypeRegistrationRequiredAttribute()]

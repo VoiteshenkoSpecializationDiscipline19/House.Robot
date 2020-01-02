@@ -66,7 +66,7 @@ namespace Robotics.Elk.ZoneSensor
         {
             base.Start();
 
-            SubscribeToElk();
+            //SubscribeToElk();
         }
 
 
@@ -76,7 +76,7 @@ namespace Robotics.Elk.ZoneSensor
             var request = new elk.FilteredSubscribeRequest(new int[] { _state.Id });
             //_elkPort.FilteredSubscribe(request, _elkNotifyPort);
 
-            Activate(Arbiter.Receive<elk.ZoneChanged>(true, _elkNotifyPort, ZoneChangedHandler));
+           // Activate(Arbiter.Receive<elk.ZoneChangedData>(true, _elkNotifyPort, ZoneChangedElkHandler));
         }
 
 
@@ -87,13 +87,13 @@ namespace Robotics.Elk.ZoneSensor
         /// notify subscribers.
         /// </summary>
         /// <param name="data"></param>
-        public void ZoneChangedHandler(elk.ZoneChanged data)
+        public void ZoneChangedElkHandler(elk.ZoneChangedData data)
         {
             
             var now = DateTime.Now;
-            var body = new SensorState{ Id = data.Body.Id, DisplayName = _state.DisplayName, TimeStamp = now };
+            var body = new SensorState{ Id = data.Id, DisplayName = _state.DisplayName, TimeStamp = now };
 
-            switch (data.Body.State)
+            switch (data.State)
             {
                 case elk.ZoneState.NormalEOL:
                 case elk.ZoneState.NormalOpen:
@@ -105,7 +105,7 @@ namespace Robotics.Elk.ZoneSensor
                         Body = new NormalZoneData { DisplayName = _state.DisplayName, TimeStamp = now }
                     });
 
-                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Body.Id, data.Body.State));
+                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Id, data.State));
                     break;
 
                 case elk.ZoneState.ViolatedEOL:
@@ -118,11 +118,9 @@ namespace Robotics.Elk.ZoneSensor
                         Body = new TriggeredZoneData { DisplayName = _state.DisplayName, TimeStamp = now }
                     });
 
-                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Body.Id, data.Body.State));
+                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Id, data.State));
                     break;
             }
-
-            //_mainPort.Post(zoneChanged);
         }
 
         /// <summary>
