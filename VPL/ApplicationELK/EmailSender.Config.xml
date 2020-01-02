@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EmailSenderState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://house.robot/2008/05/emailsender.html">
+	<Host>smtp.mail.ru</Host>
+	<Port>587</Port>
+	<UserName>nikitai12345@mail.ru</UserName>
+	<Password>Vany100300</Password>
+	<EnableSsl>true</EnableSsl>
+</EmailSenderState>

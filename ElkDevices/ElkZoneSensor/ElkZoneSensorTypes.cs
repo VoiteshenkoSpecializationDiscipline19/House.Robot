@@ -132,6 +132,8 @@ namespace Robotics.Elk.ZoneSensor
     /// <summary>
     /// Indicates that a zone has been triggered.
     /// </summary>
+    /// [DataContract]
+    [DataContract]
     public class Triggered : Update<TriggeredZoneData, DsspResponsePort<DefaultUpdateResponseType>>
     {
     }
@@ -150,6 +152,7 @@ namespace Robotics.Elk.ZoneSensor
     /// <summary>
     /// Indicates that a zone has gone back to normal state after having been triggered.
     /// </summary>
+    [DataContract]
     public class Normal : Update<NormalZoneData, DsspResponsePort<DefaultUpdateResponseType>>
     {
     }

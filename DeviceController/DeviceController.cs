@@ -7,7 +7,7 @@ using Microsoft.Dss.ServiceModel.Dssp;
 using Microsoft.Dss.ServiceModel.DsspServiceBase;
 using Microsoft.Dss.Services.SubscriptionManager;
 using W3C.Soap;
-using Robotics.Elk.ZoneSensor;
+using elk =  Robotics.Elk.ZoneSensor;
 
 namespace DeviceController
 {
@@ -63,31 +63,27 @@ namespace DeviceController
         }
 
         [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
-        public IEnumerator<ITask> ReceiveNormalHandler(NormalZoneData message)
+        public IEnumerator<ITask> ReceiveNormalHandler(elk.Normal message)
         {
             _state.Active = false;
             StateAlarm msg = new StateAlarm(_state);
             msg.ResponsePort.Post(DefaultUpdateResponseType.Instance);
-            yield return TimeoutPort(15000).Receive(
-                        dt =>
-                        {
-                            LogInfo(string.Format("Sending state notification at {0}.", dt));
-                            SendNotification<StateAlarm>(_submgrPort, msg);
-                        });
+
+            SendNotification<StateAlarm>(_submgrPort, msg);
+
+            yield break;
         }
 
         [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
-        public IEnumerator<ITask> ReceiveTriggeredHandler(TriggeredZoneData message)
+        public IEnumerator<ITask> ReceiveTriggeredHandler(elk.Triggered message)
         {
             _state.Active = true;
             StateAlarm msg = new StateAlarm(_state);
             msg.ResponsePort.Post(DefaultUpdateResponseType.Instance);
-            yield return TimeoutPort(15000).Receive(
-                        dt =>
-                        {
-                            LogInfo(string.Format("Sending state notification at {0}.", dt));
-                            SendNotification<StateAlarm>(_submgrPort, msg);
-                        });
+
+            SendNotification<StateAlarm>(_submgrPort, msg);
+
+            yield break;
         }
     }
 }

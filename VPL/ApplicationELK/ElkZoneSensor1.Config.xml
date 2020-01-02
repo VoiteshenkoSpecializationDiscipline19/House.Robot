@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SensorState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://house.robot/2008/04/elkzonesensor.html">
+	<Id>4</Id>
+	<DisplayName>Basement Door</DisplayName>
+</SensorState>

@@ -25,7 +25,12 @@ namespace ZoneChangedGenerator
 	}
 	
 	[ServicePort]
-	public class ZoneChangedGeneratorOperations : PortSet<DsspDefaultLookup, DsspDefaultDrop, Get>
+	public class ZoneChangedGeneratorOperations : PortSet<
+        DsspDefaultLookup, 
+        DsspDefaultDrop, 
+        Get, 
+        ReceiveUpdates,
+        Subscribe>
 	{
 	}
 

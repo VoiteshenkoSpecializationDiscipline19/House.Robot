@@ -22,6 +22,7 @@ namespace ZoneChangedGenerator
 		
 		[ServicePort("/ZoneChangedGenerator", AllowMultipleInstances = true)]
 		ZoneChangedGeneratorOperations _mainPort = new ZoneChangedGeneratorOperations();
+        
 
         [SubscriptionManagerPartner]
         private SubscriptionManagerPort _submgrPort = new SubscriptionManagerPort();
@@ -35,6 +36,11 @@ namespace ZoneChangedGenerator
 		
 		protected override void Start()
 		{
+            for(int i = 0; i < 4; i++)
+            {
+                devices[i] = new elk.ZoneChangedData();
+            }
+
             byte id = 1;
 			foreach (elk.ZoneChangedData zoneChanged in devices)
 			{
