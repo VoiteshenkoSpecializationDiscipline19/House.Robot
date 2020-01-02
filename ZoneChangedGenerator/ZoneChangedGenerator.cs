@@ -34,11 +34,10 @@ namespace ZoneChangedGenerator
 		protected override void Start()
 		{
 			_state.Devices = new elk.ZoneChanged[4];
-			Random random = new Random();
-
+            byte id = 0;
 			foreach (elk.ZoneChanged zoneChanged in _state.Devices)
 			{
-				zoneChanged.Body.Id = (byte)(random.Next() % 256);
+				zoneChanged.Body.Id = id++;
 				zoneChanged.Body.State = ZoneState.NormalShort;
 			}
 
