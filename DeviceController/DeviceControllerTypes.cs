@@ -6,7 +6,7 @@ using Microsoft.Dss.Core.Attributes;
 using Microsoft.Dss.ServiceModel.Dssp;
 using Microsoft.Dss.ServiceModel.DsspServiceBase;
 using W3C.Soap;
-using Robotics.Elk.ZoneSensor;
+using elk = Robotics.Elk.ZoneSensor;
 
 namespace DeviceController
 {
@@ -78,11 +78,11 @@ namespace DeviceController
         }
     }
 
-    public class ReceiveNormal : Update<NormalZoneData, DsspResponsePort<DefaultUpdateResponseType>>
+    public class ReceiveNormal : Update<elk.Normal, DsspResponsePort<DefaultUpdateResponseType>>
     {
     }
 
-    public class ReceiveTriggered : Update<TriggeredZoneData, DsspResponsePort<DefaultUpdateResponseType>>
+    public class ReceiveTriggered : Update<elk.Triggered, DsspResponsePort<DefaultUpdateResponseType>>
     {
     }
 
