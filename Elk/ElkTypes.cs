@@ -265,6 +265,7 @@ namespace Robotics.Elk
     /// <summary>
     /// Update Elk zone status
     /// </summary>
+    [DataContract]
     [Description("Notification of single zone status change")]
     public class ZoneChanged : Update<ZoneChangedData, DsspResponsePort<DefaultUpdateResponseType>>
     {
