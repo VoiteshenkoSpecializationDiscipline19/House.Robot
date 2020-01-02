@@ -63,7 +63,7 @@ namespace DeviceController
         }
 
         [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
-        public IEnumerator<ITask> ReceiveNormalHandler(elk.Normal message)
+        public IEnumerator<ITask> ReceiveNormalHandler(ReceiveNormal message)
         {
             _state.Active = false;
             StateAlarm msg = new StateAlarm(_state);
@@ -75,7 +75,7 @@ namespace DeviceController
         }
 
         [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
-        public IEnumerator<ITask> ReceiveTriggeredHandler(elk.Triggered message)
+        public IEnumerator<ITask> ReceiveTriggeredHandler(ReceiveTriggered message)
         {
             _state.Active = true;
             StateAlarm msg = new StateAlarm(_state);
