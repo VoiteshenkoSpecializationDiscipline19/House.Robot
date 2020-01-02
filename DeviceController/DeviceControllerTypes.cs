@@ -78,11 +78,11 @@ namespace DeviceController
         }
     }
 
-    public class ReceiveNormal : Update<elk.Normal, DsspResponsePort<DefaultUpdateResponseType>>
+    public class ReceiveNormal : Update<elk.NormalZoneData, DsspResponsePort<DefaultUpdateResponseType>>
     {
     }
 
-    public class ReceiveTriggered : Update<elk.Triggered, DsspResponsePort<DefaultUpdateResponseType>>
+    public class ReceiveTriggered : Update<elk.TriggeredZoneData, DsspResponsePort<DefaultUpdateResponseType>>
     {
     }
 
