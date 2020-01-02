@@ -67,6 +67,7 @@ namespace Robotics.Elk.ZoneSensor
         HttpGet,
         Subscribe,
         ZoneChanged,
+        ZoneChangedElk,
         Triggered,
         Normal
         > { }
@@ -109,6 +110,10 @@ namespace Robotics.Elk.ZoneSensor
     /// Indicates that a sensor has changed state. Subscribers to this will get updates when
     /// a zone is triggered or when it goes back to normal.
     /// </summary>
+    public class ZoneChangedElk : Update<elk.Proxy.ZoneChangedData, DsspResponsePort<DefaultUpdateResponseType>>
+    {
+    }
+
     public class ZoneChanged : Update<SensorState, DsspResponsePort<DefaultUpdateResponseType>>
     {
     }

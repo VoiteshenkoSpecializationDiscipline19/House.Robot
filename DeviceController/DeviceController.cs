@@ -17,6 +17,7 @@ namespace DeviceController
     class DeviceControllerService : DsspServiceBase
     {
         [ServiceState]
+        [InitialStatePartner(Optional = false, ServiceUri = "device.config.xml")]
         DeviceControllerState _state = new DeviceControllerState();
 
         [ServicePort("/DeviceController", AllowMultipleInstances = true)]
@@ -39,15 +40,10 @@ namespace DeviceController
 
         protected override void Start()
         {
-
-            // 
-            // Add service specific initialization here
-            // 
-
             base.Start();
         }
 
-        [ServiceHandler(ServiceHandlerBehavior.Concurrent)]
+        [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
         public IEnumerator<ITask> ReceiveUpdatesHandler(ReceiveUpdates message)
         {
             int count = message.Body.Count;
@@ -58,7 +54,7 @@ namespace DeviceController
                         dt =>
                         {
                             LogInfo(string.Format("Sending state notification at {0}.", dt));
-                        SendNotification(_submgrPort, new StateAlarm(_state));
+                            SendNotification<StateAlarm>(_submgrPort, new StateAlarm(_state));
                         }));
                 message.ResponsePort.Post(DefaultUpdateResponseType.Instance);
             }
@@ -66,27 +62,31 @@ namespace DeviceController
             yield break;
         }
 
-        [ServiceHandler(ServiceHandlerBehavior.Concurrent)]
-        public IEnumerator<ITask> ReceiveNormalHandler(Normal message)
+        [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
+        public IEnumerator<ITask> ReceiveNormalHandler(NormalZoneData message)
         {
             _state.Active = false;
+            StateAlarm msg = new StateAlarm(_state);
+            msg.ResponsePort.Post(DefaultUpdateResponseType.Instance);
             yield return TimeoutPort(15000).Receive(
                         dt =>
                         {
                             LogInfo(string.Format("Sending state notification at {0}.", dt));
-                            SendNotification(_submgrPort, new StateAlarm(_state));
+                            SendNotification<StateAlarm>(_submgrPort, msg);
                         });
         }
 
-        [ServiceHandler(ServiceHandlerBehavior.Concurrent)]
-        public IEnumerator<ITask> ReceiveTriggeredHandler(Triggered message)
+        [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
+        public IEnumerator<ITask> ReceiveTriggeredHandler(TriggeredZoneData message)
         {
             _state.Active = true;
+            StateAlarm msg = new StateAlarm(_state);
+            msg.ResponsePort.Post(DefaultUpdateResponseType.Instance);
             yield return TimeoutPort(15000).Receive(
                         dt =>
                         {
                             LogInfo(string.Format("Sending state notification at {0}.", dt));
-                            SendNotification(_submgrPort, new StateAlarm(_state));
+                            SendNotification<StateAlarm>(_submgrPort, msg);
                         });
         }
     }

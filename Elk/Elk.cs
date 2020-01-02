@@ -124,7 +124,7 @@ namespace Robotics.Elk
             byte id = message.Body.Id;
             _state.LastZoneUpdated.Id = id;
             _state.LastZoneUpdated.Name = _state.Zones[id - 1].Name;
-            _state.Zones[id- 1].State = _state.LastZoneUpdated.State = message.Body.State;
+            _state.Zones[id - 1].State = _state.LastZoneUpdated.State = message.Body.State;
             _state.Zones[id - 1].Timestamp = _state.LastZoneUpdated.Timestamp = message.Body.Timestamp;
 
             message.ResponsePort.Post(DefaultUpdateResponseType.Instance);

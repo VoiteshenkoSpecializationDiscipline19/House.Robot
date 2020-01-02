@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: global::System.Reflection.AssemblyVersionAttribute("0.0.0.0")]
-[assembly: global::Microsoft.Dss.Core.Attributes.ServiceDeclarationAttribute(global::Microsoft.Dss.Core.Attributes.DssServiceDeclaration.Proxy, SourceAssemblyKey="ElkDevices.Y2008.M04, Version=0.0.0.0, Culture=neutral, PublicKeyToken=d08de22851" +
-    "75fb3a")]
+[assembly: global::Microsoft.Dss.Core.Attributes.ServiceDeclarationAttribute(global::Microsoft.Dss.Core.Attributes.DssServiceDeclaration.Proxy, SourceAssemblyKey="ElkDevices.Y2008.M04, Version=0.0.0.0, Culture=neutral, PublicKeyToken=db89f9e070" +
+    "779560")]
 [assembly: global::System.Security.SecurityTransparentAttribute()]
 [assembly: global::System.Security.SecurityRulesAttribute(global::System.Security.SecurityRuleSet.Level1)]
 
@@ -338,6 +338,21 @@ namespace Robotics.Elk.ZoneSensor.Proxy {
     }
     
     [global::System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
+    public class ZoneChangedElk : global::Microsoft.Dss.ServiceModel.Dssp.Update<global::Robotics.Elk.Proxy.ZoneChangedData, global:: Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType>> {
+        
+        public ZoneChangedElk() {
+        }
+        
+        public ZoneChangedElk(global::Robotics.Elk.Proxy.ZoneChangedData body) : 
+                base(body) {
+        }
+        
+        public ZoneChangedElk(global::Robotics.Elk.Proxy.ZoneChangedData body, global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> responsePort) : 
+                base(body, responsePort) {
+        }
+    }
+    
+    [global::System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
     public class Triggered : global::Microsoft.Dss.ServiceModel.Dssp.Update<global::Robotics.Elk.ZoneSensor.Proxy.TriggeredZoneData, global:: Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType>> {
         
         public Triggered() {
@@ -368,7 +383,7 @@ namespace Robotics.Elk.ZoneSensor.Proxy {
     }
     
     [global::System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
-    public class ElkZoneSensorOperations : global::Microsoft.Ccr.Core.PortSet<global::Microsoft.Dss.ServiceModel.Dssp.DsspDefaultLookup, global:: Microsoft.Dss.ServiceModel.Dssp.DsspDefaultDrop, global:: Robotics.Elk.ZoneSensor.Proxy.Get, global:: Microsoft.Dss.Core.DsspHttp.HttpGet, global:: Robotics.Elk.ZoneSensor.Proxy.Subscribe, global:: Robotics.Elk.ZoneSensor.Proxy.ZoneChanged, global:: Robotics.Elk.ZoneSensor.Proxy.Triggered, global:: Robotics.Elk.ZoneSensor.Proxy.Normal> {
+    public class ElkZoneSensorOperations : global::Microsoft.Ccr.Core.PortSet<global::Microsoft.Dss.ServiceModel.Dssp.DsspDefaultLookup, global:: Microsoft.Dss.ServiceModel.Dssp.DsspDefaultDrop, global:: Robotics.Elk.ZoneSensor.Proxy.Get, global:: Microsoft.Dss.Core.DsspHttp.HttpGet, global:: Robotics.Elk.ZoneSensor.Proxy.Subscribe, global:: Robotics.Elk.ZoneSensor.Proxy.ZoneChanged, global:: Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk, global:: Robotics.Elk.ZoneSensor.Proxy.Triggered, global:: Robotics.Elk.ZoneSensor.Proxy.Normal> {
         
         public ElkZoneSensorOperations() {
         }
@@ -589,6 +604,38 @@ namespace Robotics.Elk.ZoneSensor.Proxy {
                 body = new global::Robotics.Elk.ZoneSensor.Proxy.SensorState();
             }
             operation = new global::Robotics.Elk.ZoneSensor.Proxy.ZoneChanged(body);
+            this.Post(operation);
+            return operation.ResponsePort;
+        }
+        
+        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> ZoneChangedElk() {
+            global::Robotics.Elk.Proxy.ZoneChangedData body = new global::Robotics.Elk.Proxy.ZoneChangedData();
+            global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk operation = new global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk(body);
+            this.Post(operation);
+            return operation.ResponsePort;
+        }
+        
+        public virtual global::Microsoft.Ccr.Core.Choice ZoneChangedElk(out global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk operation) {
+            global::Robotics.Elk.Proxy.ZoneChangedData body = new global::Robotics.Elk.Proxy.ZoneChangedData();
+            operation = new global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk(body);
+            this.Post(operation);
+            return operation.ResponsePort;
+        }
+        
+        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> ZoneChangedElk(global::Robotics.Elk.Proxy.ZoneChangedData body) {
+            if ((body == null)) {
+                body = new global::Robotics.Elk.Proxy.ZoneChangedData();
+            }
+            global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk operation = new global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk(body);
+            this.Post(operation);
+            return operation.ResponsePort;
+        }
+        
+        public virtual global::Microsoft.Ccr.Core.Choice ZoneChangedElk(global::Robotics.Elk.Proxy.ZoneChangedData body, out global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk operation) {
+            if ((body == null)) {
+                body = new global::Robotics.Elk.Proxy.ZoneChangedData();
+            }
+            operation = new global::Robotics.Elk.ZoneSensor.Proxy.ZoneChangedElk(body);
             this.Post(operation);
             return operation.ResponsePort;
         }

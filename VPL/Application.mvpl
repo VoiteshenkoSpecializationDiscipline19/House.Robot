@@ -1,1 +1,7 @@
-<RoboticsProject Version="RoboticsDevStudio2008" xmlns="clr-namespace:Microsoft.Robotics.Authoring.Project;assembly=Microsoft.VisualProgrammingLanguage.Editor"><RoboticsProject.Settings><ProjectSettings Year="2019" Month="12" IsServiceCompiled="False" KeyFile="C:\Users\User\Microsoft Robotics Dev Studio 4\samples\mrisamples.snk" ContractPrefix="http://schemas.tempuri.org" ClrNamespacePrefix="Robotics" IncludeDebuggingInformation="True" CodeGenerationTarget="NET40" /></RoboticsProject.Settings><Dataflow Source="Diagrams.xml.compressed" /><ConfigFile Source="EmailSender.Config.xml" /></RoboticsProject>
+<RoboticsProject Version="RoboticsDevStudio2008" xmlns="clr-namespace:Microsoft.Robotics.Authoring.Project;assembly=Microsoft.VisualProgrammingLanguage.Editor">
+  <RoboticsProject.Settings>
+    <ProjectSettings Year="2019" Month="12" IsServiceCompiled="False" KeyFile="D:\IT\Microsoft Robotics Development Studio\samples\mrisamples.snk" ContractPrefix="http://schemas.tempuri.org" ClrNamespacePrefix="Robotics" IncludeDebuggingInformation="True" CodeGenerationTarget="NET40" />
+  </RoboticsProject.Settings>
+  <Dataflow Source="Diagrams.xml.compressed" />
+  <ConfigFile Source="EmailSender.Config.xml" />
+</RoboticsProject>

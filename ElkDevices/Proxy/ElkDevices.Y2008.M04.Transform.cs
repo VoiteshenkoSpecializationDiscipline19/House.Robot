@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: global::System.Reflection.AssemblyVersionAttribute("0.0.0.0")]
-[assembly: global::Microsoft.Dss.Core.Attributes.ServiceDeclarationAttribute(global::Microsoft.Dss.Core.Attributes.DssServiceDeclaration.Transform, SourceAssemblyKey="ElkDevices.Y2008.M04, Version=0.0.0.0, Culture=neutral, PublicKeyToken=d08de22851" +
-    "75fb3a")]
+[assembly: global::Microsoft.Dss.Core.Attributes.ServiceDeclarationAttribute(global::Microsoft.Dss.Core.Attributes.DssServiceDeclaration.Transform, SourceAssemblyKey="ElkDevices.Y2008.M04, Version=0.0.0.0, Culture=neutral, PublicKeyToken=db89f9e070" +
+    "779560")]
 [assembly: global::System.Security.SecurityTransparentAttribute()]
 [assembly: global::System.Security.SecurityRulesAttribute(global::System.Security.SecurityRuleSet.Level1)]
 
