@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedCode", "SharedCode", "{B59C545C-B328-48A3-B2A9-29330FB88741}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElkDevices", "ElkDevices\ElkDevices.csproj", "{493E3EF3-889C-4642-9871-8BAA0C7D798B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureSensor", "TemperatureSensor\TemperatureSensor.csproj", "{698E7433-E512-463E-9D7A-04C6B77BBB9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoneChangedGenerator", "ZoneChangedGenerator\ZoneChangedGenerator.csproj", "{276EE426-0FBA-428B-B5F5-F5EA0BB6A9F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{698E7433-E512-463E-9D7A-04C6B77BBB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{698E7433-E512-463E-9D7A-04C6B77BBB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{698E7433-E512-463E-9D7A-04C6B77BBB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{276EE426-0FBA-428B-B5F5-F5EA0BB6A9F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{276EE426-0FBA-428B-B5F5-F5EA0BB6A9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{276EE426-0FBA-428B-B5F5-F5EA0BB6A9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{276EE426-0FBA-428B-B5F5-F5EA0BB6A9F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
