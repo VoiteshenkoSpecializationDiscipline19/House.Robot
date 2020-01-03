@@ -188,6 +188,132 @@ namespace DeviceController.Proxy {
         }
     }
     
+    [global::Microsoft.Dss.Core.Attributes.DataContractAttribute(Namespace="http://schemas.tempuri.org/2020/01/devicecontroller.html")]
+    [global::System.Xml.Serialization.XmlRootAttribute(Namespace="http://schemas.tempuri.org/2020/01/devicecontroller.html", ElementName="ReceiveNormalRequest")]
+    public class ReceiveNormalRequest : global::Microsoft.Dss.Core.IDssSerializable, global::System.ICloneable {
+        
+        public ReceiveNormalRequest() {
+        }
+        
+        /// <summary>
+        ///Copies the data member values of the current ReceiveNormalRequest to the specified target object
+        ///</summary>
+        ///<param name="target">target object (must be an instance of)</param>
+        public virtual void CopyTo(Microsoft.Dss.Core.IDssSerializable target) {
+            global::DeviceController.Proxy.ReceiveNormalRequest typedTarget = ((global::DeviceController.Proxy.ReceiveNormalRequest)(target));
+        }
+        
+        /// <summary>
+        ///Clones ReceiveNormalRequest
+        ///</summary>
+        ///<returns>cloned value</returns>
+        public virtual object Clone() {
+            global::DeviceController.Proxy.ReceiveNormalRequest target0 = new global::DeviceController.Proxy.ReceiveNormalRequest();
+            this.CopyTo(target0);
+            return target0;
+        }
+        
+        /// <summary>
+        ///Serializes the data member values of the current ReceiveNormalRequest to the specified writer
+        ///</summary>
+        ///<param name="writer">the writer to which to serialize</param>
+        public virtual void Serialize(System.IO.BinaryWriter writer) {
+        }
+        
+        /// <summary>
+        ///Deserializes ReceiveNormalRequest
+        ///</summary>
+        ///<param name="reader">the reader from which to deserialize</param>
+        ///<returns>deserialized ReceiveNormalRequest</returns>
+        public virtual object Deserialize(System.IO.BinaryReader reader) {
+            return this;
+        }
+    }
+    
+    [global::Microsoft.Dss.Core.Attributes.DataContractAttribute(Namespace="http://schemas.tempuri.org/2020/01/devicecontroller.html")]
+    [global::System.Xml.Serialization.XmlRootAttribute(Namespace="http://schemas.tempuri.org/2020/01/devicecontroller.html", ElementName="ReceiveTriggeredRequest")]
+    public class ReceiveTriggeredRequest : global::Microsoft.Dss.Core.IDssSerializable, global::System.ICloneable {
+        
+        public ReceiveTriggeredRequest() {
+        }
+        
+        /// <summary>
+        ///Copies the data member values of the current ReceiveTriggeredRequest to the specified target object
+        ///</summary>
+        ///<param name="target">target object (must be an instance of)</param>
+        public virtual void CopyTo(Microsoft.Dss.Core.IDssSerializable target) {
+            global::DeviceController.Proxy.ReceiveTriggeredRequest typedTarget = ((global::DeviceController.Proxy.ReceiveTriggeredRequest)(target));
+        }
+        
+        /// <summary>
+        ///Clones ReceiveTriggeredRequest
+        ///</summary>
+        ///<returns>cloned value</returns>
+        public virtual object Clone() {
+            global::DeviceController.Proxy.ReceiveTriggeredRequest target0 = new global::DeviceController.Proxy.ReceiveTriggeredRequest();
+            this.CopyTo(target0);
+            return target0;
+        }
+        
+        /// <summary>
+        ///Serializes the data member values of the current ReceiveTriggeredRequest to the specified writer
+        ///</summary>
+        ///<param name="writer">the writer to which to serialize</param>
+        public virtual void Serialize(System.IO.BinaryWriter writer) {
+        }
+        
+        /// <summary>
+        ///Deserializes ReceiveTriggeredRequest
+        ///</summary>
+        ///<param name="reader">the reader from which to deserialize</param>
+        ///<returns>deserialized ReceiveTriggeredRequest</returns>
+        public virtual object Deserialize(System.IO.BinaryReader reader) {
+            return this;
+        }
+    }
+    
+    [global::Microsoft.Dss.Core.Attributes.DataContractAttribute(Namespace="http://schemas.tempuri.org/2020/01/devicecontroller.html")]
+    [global::System.Xml.Serialization.XmlRootAttribute(Namespace="http://schemas.tempuri.org/2020/01/devicecontroller.html", ElementName="DeviceControllerStateRequest")]
+    public class DeviceControllerStateRequest : global::Microsoft.Dss.Core.IDssSerializable, global::System.ICloneable {
+        
+        public DeviceControllerStateRequest() {
+        }
+        
+        /// <summary>
+        ///Copies the data member values of the current DeviceControllerStateRequest to the specified target object
+        ///</summary>
+        ///<param name="target">target object (must be an instance of)</param>
+        public virtual void CopyTo(Microsoft.Dss.Core.IDssSerializable target) {
+            global::DeviceController.Proxy.DeviceControllerStateRequest typedTarget = ((global::DeviceController.Proxy.DeviceControllerStateRequest)(target));
+        }
+        
+        /// <summary>
+        ///Clones DeviceControllerStateRequest
+        ///</summary>
+        ///<returns>cloned value</returns>
+        public virtual object Clone() {
+            global::DeviceController.Proxy.DeviceControllerStateRequest target0 = new global::DeviceController.Proxy.DeviceControllerStateRequest();
+            this.CopyTo(target0);
+            return target0;
+        }
+        
+        /// <summary>
+        ///Serializes the data member values of the current DeviceControllerStateRequest to the specified writer
+        ///</summary>
+        ///<param name="writer">the writer to which to serialize</param>
+        public virtual void Serialize(System.IO.BinaryWriter writer) {
+        }
+        
+        /// <summary>
+        ///Deserializes DeviceControllerStateRequest
+        ///</summary>
+        ///<param name="reader">the reader from which to deserialize</param>
+        ///<returns>deserialized DeviceControllerStateRequest</returns>
+        public virtual object Deserialize(System.IO.BinaryReader reader) {
+            return this;
+        }
+    }
+    
     [global::System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
     public class Get : global::Microsoft.Dss.ServiceModel.Dssp.Get<global::Microsoft.Dss.ServiceModel.Dssp.GetRequestType, global:: Microsoft.Ccr.Core.PortSet<global::DeviceController.Proxy.DeviceControllerState, global:: W3C.Soap.Fault>> {
         
@@ -234,31 +360,31 @@ namespace DeviceController.Proxy {
     }
     
     [global::System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
-    public class ReceiveNormal : global::Microsoft.Dss.ServiceModel.Dssp.Update<global::Robotics.Elk.ZoneSensor.Proxy.Normal, global:: Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType>> {
+    public class ReceiveNormal : global::Microsoft.Dss.ServiceModel.Dssp.Query<global::DeviceController.Proxy.ReceiveNormalRequest, global:: Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState>> {
         
         public ReceiveNormal() {
         }
         
-        public ReceiveNormal(global::Robotics.Elk.ZoneSensor.Proxy.Normal body) : 
+        public ReceiveNormal(global::DeviceController.Proxy.ReceiveNormalRequest body) : 
                 base(body) {
         }
         
-        public ReceiveNormal(global::Robotics.Elk.ZoneSensor.Proxy.Normal body, global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> responsePort) : 
+        public ReceiveNormal(global::DeviceController.Proxy.ReceiveNormalRequest body, global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState> responsePort) : 
                 base(body, responsePort) {
         }
     }
     
     [global::System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
-    public class ReceiveTriggered : global::Microsoft.Dss.ServiceModel.Dssp.Update<global::Robotics.Elk.ZoneSensor.Proxy.Triggered, global:: Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType>> {
+    public class ReceiveTriggered : global::Microsoft.Dss.ServiceModel.Dssp.Query<global::DeviceController.Proxy.ReceiveTriggeredRequest, global:: Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState>> {
         
         public ReceiveTriggered() {
         }
         
-        public ReceiveTriggered(global::Robotics.Elk.ZoneSensor.Proxy.Triggered body) : 
+        public ReceiveTriggered(global::DeviceController.Proxy.ReceiveTriggeredRequest body) : 
                 base(body) {
         }
         
-        public ReceiveTriggered(global::Robotics.Elk.ZoneSensor.Proxy.Triggered body, global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> responsePort) : 
+        public ReceiveTriggered(global::DeviceController.Proxy.ReceiveTriggeredRequest body, global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState> responsePort) : 
                 base(body, responsePort) {
         }
     }
@@ -457,64 +583,64 @@ namespace DeviceController.Proxy {
             return operation.ResponsePort;
         }
         
-        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> ReceiveNormal() {
-            global::Robotics.Elk.ZoneSensor.Proxy.Normal body = new global::Robotics.Elk.ZoneSensor.Proxy.Normal();
+        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState> ReceiveNormal() {
+            global::DeviceController.Proxy.ReceiveNormalRequest body = new global::DeviceController.Proxy.ReceiveNormalRequest();
             global::DeviceController.Proxy.ReceiveNormal operation = new global::DeviceController.Proxy.ReceiveNormal(body);
             this.Post(operation);
             return operation.ResponsePort;
         }
         
         public virtual global::Microsoft.Ccr.Core.Choice ReceiveNormal(out global::DeviceController.Proxy.ReceiveNormal operation) {
-            global::Robotics.Elk.ZoneSensor.Proxy.Normal body = new global::Robotics.Elk.ZoneSensor.Proxy.Normal();
+            global::DeviceController.Proxy.ReceiveNormalRequest body = new global::DeviceController.Proxy.ReceiveNormalRequest();
             operation = new global::DeviceController.Proxy.ReceiveNormal(body);
             this.Post(operation);
             return operation.ResponsePort;
         }
         
-        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> ReceiveNormal(global::Robotics.Elk.ZoneSensor.Proxy.Normal body) {
+        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState> ReceiveNormal(global::DeviceController.Proxy.ReceiveNormalRequest body) {
             if ((body == null)) {
-                body = new global::Robotics.Elk.ZoneSensor.Proxy.Normal();
+                body = new global::DeviceController.Proxy.ReceiveNormalRequest();
             }
             global::DeviceController.Proxy.ReceiveNormal operation = new global::DeviceController.Proxy.ReceiveNormal(body);
             this.Post(operation);
             return operation.ResponsePort;
         }
         
-        public virtual global::Microsoft.Ccr.Core.Choice ReceiveNormal(global::Robotics.Elk.ZoneSensor.Proxy.Normal body, out global::DeviceController.Proxy.ReceiveNormal operation) {
+        public virtual global::Microsoft.Ccr.Core.Choice ReceiveNormal(global::DeviceController.Proxy.ReceiveNormalRequest body, out global::DeviceController.Proxy.ReceiveNormal operation) {
             if ((body == null)) {
-                body = new global::Robotics.Elk.ZoneSensor.Proxy.Normal();
+                body = new global::DeviceController.Proxy.ReceiveNormalRequest();
             }
             operation = new global::DeviceController.Proxy.ReceiveNormal(body);
             this.Post(operation);
             return operation.ResponsePort;
         }
         
-        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> ReceiveTriggered() {
-            global::Robotics.Elk.ZoneSensor.Proxy.Triggered body = new global::Robotics.Elk.ZoneSensor.Proxy.Triggered();
+        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState> ReceiveTriggered() {
+            global::DeviceController.Proxy.ReceiveTriggeredRequest body = new global::DeviceController.Proxy.ReceiveTriggeredRequest();
             global::DeviceController.Proxy.ReceiveTriggered operation = new global::DeviceController.Proxy.ReceiveTriggered(body);
             this.Post(operation);
             return operation.ResponsePort;
         }
         
         public virtual global::Microsoft.Ccr.Core.Choice ReceiveTriggered(out global::DeviceController.Proxy.ReceiveTriggered operation) {
-            global::Robotics.Elk.ZoneSensor.Proxy.Triggered body = new global::Robotics.Elk.ZoneSensor.Proxy.Triggered();
+            global::DeviceController.Proxy.ReceiveTriggeredRequest body = new global::DeviceController.Proxy.ReceiveTriggeredRequest();
             operation = new global::DeviceController.Proxy.ReceiveTriggered(body);
             this.Post(operation);
             return operation.ResponsePort;
         }
         
-        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::Microsoft.Dss.ServiceModel.Dssp.DefaultUpdateResponseType> ReceiveTriggered(global::Robotics.Elk.ZoneSensor.Proxy.Triggered body) {
+        public virtual global::Microsoft.Dss.ServiceModel.Dssp.DsspResponsePort<global::DeviceController.Proxy.DeviceControllerState> ReceiveTriggered(global::DeviceController.Proxy.ReceiveTriggeredRequest body) {
             if ((body == null)) {
-                body = new global::Robotics.Elk.ZoneSensor.Proxy.Triggered();
+                body = new global::DeviceController.Proxy.ReceiveTriggeredRequest();
             }
             global::DeviceController.Proxy.ReceiveTriggered operation = new global::DeviceController.Proxy.ReceiveTriggered(body);
             this.Post(operation);
             return operation.ResponsePort;
         }
         
-        public virtual global::Microsoft.Ccr.Core.Choice ReceiveTriggered(global::Robotics.Elk.ZoneSensor.Proxy.Triggered body, out global::DeviceController.Proxy.ReceiveTriggered operation) {
+        public virtual global::Microsoft.Ccr.Core.Choice ReceiveTriggered(global::DeviceController.Proxy.ReceiveTriggeredRequest body, out global::DeviceController.Proxy.ReceiveTriggered operation) {
             if ((body == null)) {
-                body = new global::Robotics.Elk.ZoneSensor.Proxy.Triggered();
+                body = new global::DeviceController.Proxy.ReceiveTriggeredRequest();
             }
             operation = new global::DeviceController.Proxy.ReceiveTriggered(body);
             this.Post(operation);

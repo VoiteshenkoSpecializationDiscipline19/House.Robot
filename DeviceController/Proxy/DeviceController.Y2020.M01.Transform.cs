@@ -30,14 +30,12 @@ namespace Dss.Transforms.TransformDeviceController {
             global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::DeviceController.DeviceControllerState), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_DeviceControllerState_TO_DeviceController_Proxy_DeviceControllerState));
             global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::DeviceController.Proxy.ReceiveUpdatesRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_Proxy_ReceiveUpdatesRequest_TO_DeviceController_ReceiveUpdatesRequest));
             global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::DeviceController.ReceiveUpdatesRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_ReceiveUpdatesRequest_TO_DeviceController_Proxy_ReceiveUpdatesRequest));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::Robotics.Elk.ZoneSensor.Proxy.Normal), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_Normal_TO_Robotics_Elk_ZoneSensor_Proxy_Normal));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::Robotics.Elk.ZoneSensor.Normal), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_Normal_TO_Robotics_Elk_ZoneSensor_Proxy_Normal0));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::Robotics.Elk.ZoneSensor.Proxy.NormalZoneData), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_NormalZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_NormalZoneData));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::Robotics.Elk.ZoneSensor.NormalZoneData), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_NormalZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_NormalZoneData0));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::Robotics.Elk.ZoneSensor.Proxy.Triggered), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_Triggered_TO_Robotics_Elk_ZoneSensor_Proxy_Triggered));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::Robotics.Elk.ZoneSensor.Triggered), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_Triggered_TO_Robotics_Elk_ZoneSensor_Proxy_Triggered0));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::Robotics.Elk.ZoneSensor.Proxy.TriggeredZoneData), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData));
-            global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::Robotics.Elk.ZoneSensor.TriggeredZoneData), new global::Microsoft.Dss.Core.Attributes.Transform(Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData0));
+            global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::DeviceController.Proxy.ReceiveNormalRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_Proxy_ReceiveNormalRequest_TO_DeviceController_ReceiveNormalRequest));
+            global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::DeviceController.ReceiveNormalRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_ReceiveNormalRequest_TO_DeviceController_Proxy_ReceiveNormalRequest));
+            global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::DeviceController.Proxy.ReceiveTriggeredRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_Proxy_ReceiveTriggeredRequest_TO_DeviceController_ReceiveTriggeredRequest));
+            global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::DeviceController.ReceiveTriggeredRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_ReceiveTriggeredRequest_TO_DeviceController_Proxy_ReceiveTriggeredRequest));
+            global::Microsoft.Dss.Core.Transforms.TransformBase.AddProxyTransform(typeof(global::DeviceController.Proxy.DeviceControllerStateRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_Proxy_DeviceControllerStateRequest_TO_DeviceController_DeviceControllerStateRequest));
+            global::Microsoft.Dss.Core.Transforms.TransformBase.AddSourceTransform(typeof(global::DeviceController.DeviceControllerStateRequest), new global::Microsoft.Dss.Core.Attributes.Transform(DeviceController_DeviceControllerStateRequest_TO_DeviceController_Proxy_DeviceControllerStateRequest));
         }
         
         public static object DeviceController_Proxy_DeviceControllerState_TO_DeviceController_DeviceControllerState(object transformFrom) {
@@ -72,60 +70,40 @@ namespace Dss.Transforms.TransformDeviceController {
             return target;
         }
         
-        private static global::Robotics.Elk.ZoneSensor.Proxy.Normal _cachedInstance0 = new global::Robotics.Elk.ZoneSensor.Proxy.Normal();
+        private static global::DeviceController.Proxy.ReceiveNormalRequest _cachedInstance0 = new global::DeviceController.Proxy.ReceiveNormalRequest();
         
-        private static global::Robotics.Elk.ZoneSensor.Normal _cachedInstance = new global::Robotics.Elk.ZoneSensor.Normal();
+        private static global::DeviceController.ReceiveNormalRequest _cachedInstance = new global::DeviceController.ReceiveNormalRequest();
         
-        public static object Robotics_Elk_ZoneSensor_Proxy_Normal_TO_Robotics_Elk_ZoneSensor_Proxy_Normal(object transformFrom) {
+        public static object DeviceController_Proxy_ReceiveNormalRequest_TO_DeviceController_ReceiveNormalRequest(object transformFrom) {
             return _cachedInstance;
         }
         
-        public static object Robotics_Elk_ZoneSensor_Proxy_Normal_TO_Robotics_Elk_ZoneSensor_Proxy_Normal0(object transformFrom) {
+        public static object DeviceController_ReceiveNormalRequest_TO_DeviceController_Proxy_ReceiveNormalRequest(object transformFrom) {
             return _cachedInstance0;
         }
         
-        public static object Robotics_Elk_ZoneSensor_Proxy_NormalZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_NormalZoneData(object transformFrom) {
-            global::Robotics.Elk.ZoneSensor.NormalZoneData target = new global::Robotics.Elk.ZoneSensor.NormalZoneData();
-            global::Robotics.Elk.ZoneSensor.Proxy.NormalZoneData from = ((global::Robotics.Elk.ZoneSensor.Proxy.NormalZoneData)(transformFrom));
-            target.DisplayName = from.DisplayName;
-            target.TimeStamp = from.TimeStamp;
-            return target;
-        }
+        private static global::DeviceController.Proxy.ReceiveTriggeredRequest _cachedInstance2 = new global::DeviceController.Proxy.ReceiveTriggeredRequest();
         
-        public static object Robotics_Elk_ZoneSensor_Proxy_NormalZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_NormalZoneData0(object transformFrom) {
-            global::Robotics.Elk.ZoneSensor.Proxy.NormalZoneData target = new global::Robotics.Elk.ZoneSensor.Proxy.NormalZoneData();
-            global::Robotics.Elk.ZoneSensor.NormalZoneData from = ((global::Robotics.Elk.ZoneSensor.NormalZoneData)(transformFrom));
-            target.DisplayName = from.DisplayName;
-            target.TimeStamp = from.TimeStamp;
-            return target;
-        }
+        private static global::DeviceController.ReceiveTriggeredRequest _cachedInstance1 = new global::DeviceController.ReceiveTriggeredRequest();
         
-        private static global::Robotics.Elk.ZoneSensor.Proxy.Triggered _cachedInstance2 = new global::Robotics.Elk.ZoneSensor.Proxy.Triggered();
-        
-        private static global::Robotics.Elk.ZoneSensor.Triggered _cachedInstance1 = new global::Robotics.Elk.ZoneSensor.Triggered();
-        
-        public static object Robotics_Elk_ZoneSensor_Proxy_Triggered_TO_Robotics_Elk_ZoneSensor_Proxy_Triggered(object transformFrom) {
+        public static object DeviceController_Proxy_ReceiveTriggeredRequest_TO_DeviceController_ReceiveTriggeredRequest(object transformFrom) {
             return _cachedInstance1;
         }
         
-        public static object Robotics_Elk_ZoneSensor_Proxy_Triggered_TO_Robotics_Elk_ZoneSensor_Proxy_Triggered0(object transformFrom) {
+        public static object DeviceController_ReceiveTriggeredRequest_TO_DeviceController_Proxy_ReceiveTriggeredRequest(object transformFrom) {
             return _cachedInstance2;
         }
         
-        public static object Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData(object transformFrom) {
-            global::Robotics.Elk.ZoneSensor.TriggeredZoneData target = new global::Robotics.Elk.ZoneSensor.TriggeredZoneData();
-            global::Robotics.Elk.ZoneSensor.Proxy.TriggeredZoneData from = ((global::Robotics.Elk.ZoneSensor.Proxy.TriggeredZoneData)(transformFrom));
-            target.DisplayName = from.DisplayName;
-            target.TimeStamp = from.TimeStamp;
-            return target;
+        private static global::DeviceController.Proxy.DeviceControllerStateRequest _cachedInstance4 = new global::DeviceController.Proxy.DeviceControllerStateRequest();
+        
+        private static global::DeviceController.DeviceControllerStateRequest _cachedInstance3 = new global::DeviceController.DeviceControllerStateRequest();
+        
+        public static object DeviceController_Proxy_DeviceControllerStateRequest_TO_DeviceController_DeviceControllerStateRequest(object transformFrom) {
+            return _cachedInstance3;
         }
         
-        public static object Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData_TO_Robotics_Elk_ZoneSensor_Proxy_TriggeredZoneData0(object transformFrom) {
-            global::Robotics.Elk.ZoneSensor.Proxy.TriggeredZoneData target = new global::Robotics.Elk.ZoneSensor.Proxy.TriggeredZoneData();
-            global::Robotics.Elk.ZoneSensor.TriggeredZoneData from = ((global::Robotics.Elk.ZoneSensor.TriggeredZoneData)(transformFrom));
-            target.DisplayName = from.DisplayName;
-            target.TimeStamp = from.TimeStamp;
-            return target;
+        public static object DeviceController_DeviceControllerStateRequest_TO_DeviceController_Proxy_DeviceControllerStateRequest(object transformFrom) {
+            return _cachedInstance4;
         }
     }
 }
