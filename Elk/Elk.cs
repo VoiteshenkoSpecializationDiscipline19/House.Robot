@@ -129,7 +129,7 @@ namespace Robotics.Elk
 
             message.ResponsePort.Post(DefaultUpdateResponseType.Instance);
 
-            SendNotification(_submgrPort, message, message.Body.Id.ToString()); // Converting the ID back to a string to remove leading zeros if there are any.
+            SendNotification(_submgrPort, message, message.Body.Id.ToString()); 
 
             yield break;
         }
