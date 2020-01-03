@@ -23,6 +23,10 @@ namespace DeviceController
         [ServicePort("/DeviceController", AllowMultipleInstances = true)]
         DeviceControllerOperations _mainPort = new DeviceControllerOperations();
 
+        [Partner("Elk", Contract = elk.Contract.Identifier, CreationPolicy = PartnerCreationPolicy.UseExistingOrCreate, Optional = false)]
+        private elk.ElkZoneSensorOperations _elkPort = new elk.ElkZoneSensorOperations();
+        private elk.ElkZoneSensorOperations _elkNotifyPort = new elk.ElkZoneSensorOperations();
+
         [SubscriptionManagerPartner]
         private SubscriptionManagerPort _submgrPort = new SubscriptionManagerPort();
 
@@ -41,6 +45,19 @@ namespace DeviceController
         protected override void Start()
         {
             base.Start();
+
+            SubscribeToSensor();
+        }
+
+        void SubscribeToSensor()
+        {
+            elk.Subscribe msg = new elk.Subscribe();
+            msg.NotificationPort = _elkNotifyPort;
+            _elkPort.Post(msg);
+
+
+            Activate(Arbiter.Receive<elk.Normal>(true, _elkNotifyPort, NormalHandler));
+            Activate(Arbiter.Receive<elk.Triggered>(true, _elkNotifyPort, TriggeredHandler));
         }
 
         [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
@@ -62,14 +79,30 @@ namespace DeviceController
             yield break;
         }
 
+        public void NormalHandler(elk.Normal message)
+        {
+            _state.Active = false;
+            message.ResponsePort.Post(DefaultUpdateResponseType.Instance);
+            _mainPort.Post(new ReceiveNormal());
+            //SendNotification<StateAlarm>(_submgrPort, msg);
+        }
+
+        public void TriggeredHandler(elk.Triggered message)
+        {
+            _state.Active = true;
+            message.ResponsePort.Post(DefaultUpdateResponseType.Instance);
+            _mainPort.Post(new ReceiveTriggered());
+
+            //SendNotification<StateAlarm>(_submgrPort, msg);
+        }
+
         [ServiceHandler(ServiceHandlerBehavior.Exclusive)]
         public IEnumerator<ITask> ReceiveNormalHandler(ReceiveNormal message)
         {
             _state.Active = false;
-            StateAlarm msg = new StateAlarm(_state);
-            msg.ResponsePort.Post(DefaultUpdateResponseType.Instance);
+            message.ResponsePort.Post(_state);
 
-            SendNotification<StateAlarm>(_submgrPort, msg);
+            //SendNotification<StateAlarm>(_submgrPort, msg);
 
             yield break;
         }
@@ -78,10 +111,10 @@ namespace DeviceController
         public IEnumerator<ITask> ReceiveTriggeredHandler(ReceiveTriggered message)
         {
             _state.Active = true;
-            StateAlarm msg = new StateAlarm(_state);
-            msg.ResponsePort.Post(DefaultUpdateResponseType.Instance);
+            message.ResponsePort.Post(_state);
 
-            SendNotification<StateAlarm>(_submgrPort, msg);
+
+            //SendNotification<StateAlarm>(_submgrPort, msg);
 
             yield break;
         }

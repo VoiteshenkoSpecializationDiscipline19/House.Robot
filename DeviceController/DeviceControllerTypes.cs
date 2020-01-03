@@ -26,7 +26,17 @@ namespace DeviceController
         [Description("Device state")]
         public bool Active { get; set; }
     }
-	
+
+    [DataContract]
+    public class DeviceControllerStateRequest
+    {
+    }
+
+    public class DeviceControllerStateResponse:Submit<DeviceControllerStateRequest, DsspResponsePort<DeviceControllerState>>
+    {
+
+    }
+
 	[ServicePort]
 	public class DeviceControllerOperations : PortSet<
         DsspDefaultLookup,
@@ -78,11 +88,21 @@ namespace DeviceController
         }
     }
 
-    public class ReceiveNormal : Update<elk.NormalZoneData, DsspResponsePort<DefaultUpdateResponseType>>
+    public class ReceiveNormal : Query<ReceiveNormalRequest, DsspResponsePort<DeviceControllerState>>
     {
     }
 
-    public class ReceiveTriggered : Update<elk.TriggeredZoneData, DsspResponsePort<DefaultUpdateResponseType>>
+    public class ReceiveTriggered : Query<ReceiveTriggeredRequest, DsspResponsePort<DeviceControllerState>>
+    {
+    }
+
+    [DataContract]
+    public class ReceiveNormalRequest
+    {
+    }
+
+    [DataContract]
+    public class ReceiveTriggeredRequest
     {
     }
 

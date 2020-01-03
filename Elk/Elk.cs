@@ -67,7 +67,7 @@ namespace Robotics.Elk
                     Arbiter.Receive<string>(true, _ioPort, ElkDataHandler)
                     )));
 
-            SpawnIterator(ElkReader);
+            //SpawnIterator(ElkReader);
         }
 
         #region Service handlers

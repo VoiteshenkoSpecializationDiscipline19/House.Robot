@@ -66,7 +66,7 @@ namespace Robotics.Elk.ZoneSensor
         {
             base.Start();
 
-            //SubscribeToElk();
+            SubscribeToElk();
         }
 
 
@@ -74,9 +74,15 @@ namespace Robotics.Elk.ZoneSensor
         {
             //TODO: Make sure that we get an initial state from the panel when we subscribe.
             var request = new elk.FilteredSubscribeRequest(new int[] { _state.Id });
+
             //_elkPort.FilteredSubscribe(request, _elkNotifyPort);
 
-           // Activate(Arbiter.Receive<elk.ZoneChangedData>(true, _elkNotifyPort, ZoneChangedElkHandler));
+            elk.Subscribe msg = new elk.Subscribe();
+            msg.NotificationPort = _elkNotifyPort;
+            _elkPort.Post(msg);
+
+
+            Activate(Arbiter.Receive<elk.ZoneChanged>(true, _elkNotifyPort, ZoneChangedElkHandler));
         }
 
 
@@ -87,13 +93,16 @@ namespace Robotics.Elk.ZoneSensor
         /// notify subscribers.
         /// </summary>
         /// <param name="data"></param>
-        public void ZoneChangedElkHandler(elk.ZoneChangedData data)
+        public void ZoneChangedElkHandler(elk.ZoneChanged data)
         {
-            
-            var now = DateTime.Now;
-            var body = new SensorState{ Id = data.Id, DisplayName = _state.DisplayName, TimeStamp = now };
 
-            switch (data.State)
+            if (_state.Id != data.Body.Id)
+                return;
+
+            var now = DateTime.Now;
+            var body = new SensorState{ Id = data.Body.Id, DisplayName = _state.DisplayName, TimeStamp = now };
+
+            switch (data.Body.State)
             {
                 case elk.ZoneState.NormalEOL:
                 case elk.ZoneState.NormalOpen:
@@ -105,7 +114,7 @@ namespace Robotics.Elk.ZoneSensor
                         Body = new NormalZoneData { DisplayName = _state.DisplayName, TimeStamp = now }
                     });
 
-                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Id, data.State));
+                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Body.Id, data.Body.State));
                     break;
 
                 case elk.ZoneState.ViolatedEOL:
@@ -118,7 +127,7 @@ namespace Robotics.Elk.ZoneSensor
                         Body = new TriggeredZoneData { DisplayName = _state.DisplayName, TimeStamp = now }
                     });
 
-                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Id, data.State));
+                    LogVerbose(string.Format("ZoneSensor:{0} State:{1}", data.Body.Id, data.Body.State));
                     break;
             }
         }
